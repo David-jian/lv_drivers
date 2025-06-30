@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12.4)
+cmake_minimum_required(VERSION 3.16.3)
 
 project(lv_drivers HOMEPAGE_URL https://github.com/lvgl/lv_drivers/)
 
@@ -20,7 +20,7 @@ target_include_directories(lv_drivers SYSTEM PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 find_package(PkgConfig)
 pkg_check_modules(PKG_WAYLAND wayland-client wayland-cursor wayland-protocols xkbcommon)
-target_link_libraries(lv_drivers PUBLIC lvgl ${PKG_WAYLAND_LIBRARIES})
+target_link_libraries(lv_drivers PUBLIC lvgl ${PKG_WAYLAND_LIBRARIES} X11)
 
 if("${LIB_INSTALL_DIR}" STREQUAL "")
   set(LIB_INSTALL_DIR "lib")
